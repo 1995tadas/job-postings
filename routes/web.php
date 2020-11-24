@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\LocaleController;
+use App\Http\Controllers\PostingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +23,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::get('test', function (){
-    return 'test';
+
+Route::prefix('jobs')->name('jobs.')->group(function () {
+    Route::view('create', 'jobs.create')->name('create');
+    Route::post('/', [PostingController::class, 'store'])->name('store');
 });
+Route::get('change',[LocaleController::class, 'change'])->name('locale.change');
+

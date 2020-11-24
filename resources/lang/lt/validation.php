@@ -79,7 +79,7 @@ $validation = [
     'max' => [
         'numeric' => 'The :attribute may not be greater than :max.',
         'file' => 'The :attribute may not be greater than :max kilobytes.',
-        'string' => 'The :attribute may not be greater than :max characters.',
+        'string' => ':attribute turi būti ne ilgesnis :max simboliai.',
         'array' => 'The :attribute may not have more than :max items.',
     ],
     'mimes' => 'The :attribute must be a file of type: :values.',
@@ -87,7 +87,7 @@ $validation = [
     'min' => [
         'numeric' => 'The :attribute must be at least :min.',
         'file' => 'The :attribute must be at least :min kilobytes.',
-        'string' => 'The :attribute must be at least :min characters.',
+        'string' => ':attribute turi būti bent :min simbolių.',
         'array' => 'The :attribute must have at least :min items.',
     ],
     'multiple_of' => 'The :attribute must be a multiple of :value',
@@ -97,7 +97,7 @@ $validation = [
     'password' => 'The password is incorrect.',
     'present' => 'The :attribute field must be present.',
     'regex' => 'The :attribute format is invalid.',
-    'required' => 'The :attribute field is required.',
+    'required' => ':attribute laukas yra privalomas.',
     'required_if' => 'The :attribute field is required when :other is :value.',
     'required_unless' => 'The :attribute field is required unless :other is in :values.',
     'required_with' => 'The :attribute field is required when :values is present.',
@@ -112,7 +112,7 @@ $validation = [
         'array' => 'The :attribute must contain :size items.',
     ],
     'starts_with' => 'The :attribute must start with one of the following: :values.',
-    'string' => 'The :attribute must be a string.',
+    'string' => ':attribute turi būti tekstinio (string) tipo.',
     'timezone' => 'The :attribute must be a valid zone.',
     'unique' => 'The :attribute has already been taken.',
     'uploaded' => 'The :attribute failed to upload.',
@@ -148,16 +148,15 @@ $validation = [
     */
 
     'attributes' => [
-        'title.*' => 'title',
-        'description.*' => 'description',
-        'salary.*' => 'salary',
+        'title.*' => 'Pavadinimo',
+        'description.*' => 'Aprašymo',
+        'salary.*' => 'Darbo užmokesčio',
     ],
 ];
 
 foreach (['en', 'lt'] as $language) {
     for ($i = 0; $i <= 5; $i++) {
-        $validation['attributes']['job-areas'][$language][$i] = 'job area';
+        $validation['attributes']['job-areas'][$language][$i] = 'Mes siūlome';
     }
 }
 return $validation;
-
