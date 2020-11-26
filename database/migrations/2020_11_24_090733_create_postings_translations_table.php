@@ -19,7 +19,8 @@ class CreatePostingsTranslationsTable extends Migration
             $table->string('title');
             $table->text('description');
             $table->text('salary');
-            $table->foreignId('posting_id')->constrained()->onDelete('cascade');;
+            $table->timestamps();
+            $table->foreignId('posting_id')->constrained()->onDelete('cascade');
         });
     }
 

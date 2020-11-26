@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Posting extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['user_id'];
+
+    public function postingsTranslations()
+    {
+        return $this->hasMany(PostingsTranslation::class);
+    }
+
+    public function postingsTranslationsByLanguage($language)
+    {
+        return $this->postingsTranslations()->where('language', $language);
+    }
 }

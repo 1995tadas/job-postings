@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class JobArea extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['content', 'postings_translation_id'];
+
+    public $timestamps = false;
 }

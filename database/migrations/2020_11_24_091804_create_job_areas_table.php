@@ -15,7 +15,7 @@ class CreateJobAreasTable extends Migration
     {
         Schema::create('job_areas', function (Blueprint $table) {
             $table->id();
-            $table->text('content');
+            $table->text('content')->nullable();
             $table->foreignId('postings_translation_id')->constrained()->onDelete('cascade');
         });
     }

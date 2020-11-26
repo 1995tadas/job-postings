@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\PostingController;
 use Illuminate\Support\Facades\Route;
@@ -15,18 +16,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::prefix('job')->name('job.')->group(function () {
+    Route::middleware('auth')->group(function(){
+        Route::view('create', 'jobs.create')->name('create');
+        Route::post('/', [PostingController::class, 'store'])->name('store');
+        Route::middleware('author')->group(function(){
+            Route::get('{id}/edit', [PostingController::class, 'edit'])->name('edit');
+            Route::put('{id}', [PostingController::class, 'update'])->name('update');
+        });
+    });
+    Route::get('/', [PostingController::class, 'index'])->name('index');
+    Route::get('{id}/show', [PostingController::class, 'show'])->name('show');
 
-
-Route::prefix('jobs')->name('jobs.')->group(function () {
-    Route::view('create', 'jobs.create')->name('create');
-    Route::post('/', [PostingController::class, 'store'])->name('store');
 });
 Route::get('change',[LocaleController::class, 'change'])->name('locale.change');
+
+Route::post('login',[AuthController::class,'login'])->name('login');
+Route::post('register',[AuthController::class,'register'])->name('register');
+Route::post('logout',[AuthController::class,'logout'])->name('logout');
 

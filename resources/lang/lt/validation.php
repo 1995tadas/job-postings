@@ -148,15 +148,15 @@ $validation = [
     */
 
     'attributes' => [
-        'title.*' => 'Pavadinimo',
-        'description.*' => 'Aprašymo',
-        'salary.*' => 'Darbo užmokesčio',
+        'title.*' => 'Pavadinimas(o)',
+        'description.*' => 'Aprašymas(o)',
+        'salary.*' => 'Darbo užmokestis(čio)',
     ],
 ];
 
 foreach (['en', 'lt'] as $language) {
     for ($i = 0; $i <= 5; $i++) {
-        $validation['attributes']['job-areas'][$language][$i] = 'Mes siūlome';
+        $validation['attributes']['areas'][$language][$i] = 'Mes siūlome';
     }
 }
 return $validation;

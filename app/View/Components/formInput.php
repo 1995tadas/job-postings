@@ -6,9 +6,10 @@ use Illuminate\View\Component;
 
 class formInput extends Component
 {
-    public $id;
     public $name;
     public $value;
+    public $id;
+    public $required;
 
     /**
      * Create a new component instance.
@@ -16,11 +17,13 @@ class formInput extends Component
      * @param $name
      * @param $value
      * @param string $id
+     * @param bool $required
      */
-    public function __construct($name, $value, $id = '')
+    public function __construct($name, $value, $id = '', $required = false)
     {
         $this->name = $name;
         $this->value = $value;
+        $this->required = $required;
         $this->id = $id;
     }
 

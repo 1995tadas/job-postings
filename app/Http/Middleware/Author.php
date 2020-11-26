@@ -2,11 +2,11 @@
 
 namespace App\Http\Middleware;
 
-use App\Services\LocaleService;
+use App\Models\Posting;
 use Closure;
 use Illuminate\Http\Request;
 
-class SetLocale
+class Author
 {
     /**
      * Handle an incoming request.
@@ -17,10 +17,10 @@ class SetLocale
      */
     public function handle(Request $request, Closure $next)
     {
-        $locale = session('locale');
-        if ($locale) {
-            $localeService = new LocaleService();
-            $localeService->setLocale($locale);
+        $id = $request->route('id');
+        $posting = Posting::where('user_id', auth()->user()->id)->find($id);
+        if (!$posting) {
+            return redirect()->back();
         }
 
         return $next($request);

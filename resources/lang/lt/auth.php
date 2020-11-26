@@ -13,8 +13,18 @@ return [
     |
     */
 
-    'failed' => 'These credentials do not match our records.',
-    'password' => 'The provided password is incorrect.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+    'failed' => 'Tokio vartotojo nėra mūsų duomenų bazėje.',
+    'password' => 'Slaptažodis yra neteisingas.',
+    'throttle' => 'Per daug bandymų prisijungti. Palaukite :seconds sekundes.',
+    'login' =>'Prisijugti',
+    'register' =>'Registruotis',
+    'logout' =>'Atsijungti',
+    'email' =>'E-paštas',
+    'pass' =>'Slaptažodis',
+    'confirm'=>"Patvirtinti slaptažodį",
+    'remember' =>'Prisiminti mane',
+    'name' =>'Vardas',
+    'registered'=>'Jau registruotas'
+
 
 ];

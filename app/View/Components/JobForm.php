@@ -7,18 +7,18 @@ use Illuminate\View\Component;
 class JobForm extends Component
 {
     public $action;
-    public $value;
+    public $postingsTranslations;
 
     /**
      * Create a new component instance.
      *
      * @param $action
-     * @param string $value
+     * @param array $postingsTranslations
      */
-    public function __construct($action, $value = '')
+    public function __construct($action, array $postingsTranslations = [])
     {
         $this->action = $action;
-        $this->value = $value;
+        $this->postingsTranslations = $postingsTranslations;
     }
 
     /**

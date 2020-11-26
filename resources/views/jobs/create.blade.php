@@ -1,5 +1,5 @@
-<x-guest-layout>
-    <x-job-form action="{{route('jobs.store')}}">
+<x-app-layout>
+    <x-job-form action="{{route('job.store')}}">
 
     </x-job-form>
-</x-guest-layout>
+</x-app-layout>

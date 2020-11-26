@@ -156,7 +156,7 @@ $validation = [
 
 foreach (['en', 'lt'] as $language) {
     for ($i = 0; $i <= 5; $i++) {
-        $validation['attributes']['job-areas'][$language][$i] = 'job area';
+        $validation['attributes']['areas'][$language][$i] = 'job area';
     }
 }
 return $validation;
